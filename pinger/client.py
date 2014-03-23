@@ -27,14 +27,13 @@ class UDPPingerClient(object):
     def start(self):
         for i in xrange(self.DEFAULT_COUNT):
             try:
-                size = self.socket.sendto(self.DEFAULT_MESSAGE,
-                                          self.server_address)
-                if size > 0:
-                    data = self.socket.recv(self.DEFAULT_SIZE)
-                    display_name = '%s (%s)' % (self.server_name,
-                                                self.server_address[0])
-                    msg = '%d bytes from %s' % (len(data), display_name)
-                    self.log_message(msg)
+                self.socket.sendto(self.DEFAULT_MESSAGE,
+                                   self.server_address)
+                data = self.socket.recv(self.DEFAULT_SIZE)
+                display_name = '%s (%s)' % (self.server_name,
+                                            self.server_address[0])
+                msg = '%d bytes from %s' % (len(data), display_name)
+                self.log_message(msg)
                 if i < self.DEFAULT_COUNT - 1:
                     time.sleep(1)
 
