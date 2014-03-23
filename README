@@ -1,0 +1,20 @@
+UDP Pinger
+==========
+
+UDP Pinger server and client programs in Python
+
+Description
+-----------
+
+The server use non-blocking socket with select system call for I/O multiplexing. The client sends default message to the UDP port of the server with one-second timeout.
+
+Usage
+-----
+
+Server:
+
+    $ ./server.py [port]
+
+Client:
+
+	$ ./client.py <hostname> [port]
